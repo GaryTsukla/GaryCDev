@@ -1,0 +1,14 @@
+{
+  "name": "garycdev",
+  "version": "1.0.0",
+  "description": "My website, garyc.dev",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "GaryTsukla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
