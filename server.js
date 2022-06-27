@@ -12,13 +12,13 @@ app.use('/assets', express.static(addPath('/assets')));
 app.get('/',(h,r)=>{
 	r.sendFile(addPath('/index.html'));
 });
+app.get('/html',(h,r)=>{
+	r.sendFile(addPath('/index2.html'));
+});
 
 // Throw 404 if no page found
 app.use((h,r)=>{
 	r.status(404).sendFile(addPath('/404.html'));
 });
 const PORT = process.env.PORT || 8080;
-app.listen(PORT,()=>{
-	// eslint-disable-next-line no-console
-	console.log('Server listening on port '+PORT+'...');
-});
+app.listen(PORT);
