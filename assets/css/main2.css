@@ -6,14 +6,53 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
+  font-size: 100%;
 }
-#wrapper {
+#SideBarHolder{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:auto auto;
+  margin:0;
+  margin-left:2em;
+  padding:0;
+}
+#MainWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
+}
+nav{
+  position:fixed;
+  top:0;
+  left:-18em;
+  min-width: 20em;
+  width:20em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  gap:1em;
+  background:#312450;
+}
+nav > a{
+  font-size:1.5em;
+  text-decoration:none;
+  color:#fffb;
+  width:calc(100% - 4em);
+  display:inline-block;
+  text-align: center;
+}
+nav > a:hover{
+  color:#fff;
+}
+.activeLocation{
+  background-color:#6f59a7;
 }
 header,
 section,
@@ -24,15 +63,15 @@ footer {
   padding: 2em;
   margin: 0;
   background-image: linear-gradient(135deg, #5e42a6, #6f59a7);
-  width: 100vw;
+  width:100%;
   color: white;
-  /* border-top:0.2em solid white; */
+  max-width:100vw;
 }
-/* #intro{
-    border-top:none;
-} */
+footer {
+  align-items: center;
+}
 h1 {
-  font-size: 2em;
+  font-size: 2.4em;
   margin: 0;
   padding: 0.5em 0;
 }
@@ -52,6 +91,14 @@ img {
 p {
   margin: 0;
   color: #fffb;
+  max-width:28em;
+  text-align: justify;
+}
+.standardImage{
+  min-width:13em;
+  width:13em;
+  min-height:13em;
+  height:13em;
 }
 .svg{
   display:inline-block;
@@ -82,18 +129,17 @@ p {
 .svg:hover::before,.svg:active::before{
   content: " ";
   position: absolute;
-  top: 100%;
+  top: calc(100% - 0.6em);
   left: 50%;
   margin-left: -0.3em;
   border-width: 0.3em;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: transparent transparent #000b transparent;
 }
 .buttonGroup {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 0.5em;
-  row-gap: 1.5em;
+  gap: 1.5em;
 }
 .button {
   border: 0.1em solid #fff5;
@@ -112,15 +158,50 @@ p {
 }
 .flexNav {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap:0.5em;
-}
-.standardImage {
-  width: 13em;
 }
 .gridStyle1 {
   display: grid;
   gap: 1em;
   border-top: 0.1em solid white;
   padding: 1em 0;
+  width:100%;
+}
+@media screen and (min-width:55em){
+  .gridStyle1{
+    grid-template-columns:13em auto;
+    grid-template-rows:repeat(4, min-content);
+    margin-bottom:-1em;
+  }
+  .gridStyle1 > *{
+    grid-column: 2/3;
+    align-self: start;
+  }
+  .gridStyle1 > *:first-child{
+    grid-column:1/2;
+    grid-row:1/4;
+    align-self: center;
+  }
+  #SideBarHolder{
+    margin-left:20em;
+  }
+  nav{
+    left:0em;
+  }
+}
+@media screen and (min-width:70em){
+  body{
+    font-size: 120%;
+  }
+}
+@media screen and (min-width:80em){
+  body{
+    font-size: 130%;
+  }
+}
+@media screen and (min-width:90em){
+  body{
+    font-size: 140%;
+  }
 }
