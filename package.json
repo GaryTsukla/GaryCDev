@@ -6,8 +6,16 @@
   "scripts": {
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaryTsukla/GaryCDev.git"
+  },
   "author": "GaryTsukla",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaryTsukla/GaryCDev/issues"
+  },
+  "homepage": "https://github.com/GaryTsukla/GaryCDev#readme",
   "dependencies": {
     "express": "^4.18.1"
   }

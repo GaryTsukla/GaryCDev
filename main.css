@@ -1,12 +1,16 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-size: 100%;
+  background-color:#312450;
 }
 #SideBarHolder{
   display:grid;
@@ -32,15 +36,24 @@ nav{
   width:20em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 0;
+  padding-top:4em;
   margin: 0;
   height: 100vh;
   gap:1em;
-  background:#312450;
+  background-color:#312450;
+  background-attachment:scroll;
+  background-image: url(image/intro.svg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index:1;
+  transition:all 0.4s ease;
 }
 nav > a{
+  position:relative;
   font-size:1.5em;
   text-decoration:none;
   color:#fffb;
@@ -50,6 +63,54 @@ nav > a{
 }
 nav > a:hover{
   color:#fff;
+}
+nav .background{
+  position:absolute;
+  top:0;
+  left:0;
+  right:1000;
+  bottom:0;
+  background-color:#6f59a7;
+  z-index:-1;
+  transition:all 0.3s ease;
+}
+#navopen{
+  position:fixed;
+  left:0;
+  top:0;
+  width:2rem;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap:0.5em;
+  background-color:transparent;
+  border:none;
+  cursor:pointer;
+  margin:0;
+  padding:0;
+  padding:0.5em;
+}
+#navopen > .top, #navopen > .middle, #navopen > .bottom{
+  border-top:0.15rem solid #fffb;
+  width:1.4rem;
+  transition:all 0.3s ease;
+}
+#navopen:hover > .top, #navopen:hover > .middle, #navopen:hover > .bottom{
+  border-top-color: #fff;
+}
+nav.opened{
+  left:0em;
+}
+#navopen.opened > .top{
+  transform:rotate(45deg) translate(0.505em,0.5em);
+}
+#navopen.opened > .middle{
+  opacity:0;
+}
+#navopen.opened > .bottom{
+  transform:rotate(-45deg) translate(0.505em,-0.5em);
 }
 .activeLocation{
   background-color:#6f59a7;
@@ -142,6 +203,7 @@ p {
   gap: 1.5em;
 }
 .button {
+  position: relative;
   border: 0.1em solid #fff5;
   border-radius: 3em;
   color: white;
@@ -155,6 +217,28 @@ p {
   font-weight: bold;
   font-size: 0.75em;
   letter-spacing: 0.1em;
+  overflow:hidden;
+  transition:all 0.2s ease;
+}
+.button:after{
+  position:absolute;
+  content:'';
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#fff;
+  opacity:0;
+  transform:scale(0.25);
+  transition:all 0.3s ease;
+  border-radius:3em;
+}
+.button:hover{
+  border: 0.1em solid #fff;
+}
+.button:hover:after{
+  opacity:0.1;
+  transform:scale(1);
 }
 .flexNav {
   display: flex;
@@ -188,6 +272,9 @@ p {
   }
   nav{
     left:0em;
+  }
+  #navopen{
+    display:none;
   }
 }
 @media screen and (min-width:70em){

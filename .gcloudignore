@@ -13,6 +13,7 @@
 .git
 .gitignore
 images
+oldstuff
 
 # Node.js dependencies:
 node_modules/

@@ -2,23 +2,23 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const addPath=function(p){
-	return path.join(__dirname,p);
+  return path.join(__dirname,p);
 };
-// Access static resources in these pages
-app.use('/assets', express.static(addPath('/assets')));
-/* app.use('/images', express.static(addPath('/images'))); */
 
 // Send requested page, h=header&request,r=response
 app.get('/',(h,r)=>{
-	r.sendFile(addPath('/index.html'));
+  r.sendFile(addPath('/index.html'));
 });
-app.get('/html',(h,r)=>{
-	r.sendFile(addPath('/index2.html'));
+app.get('/main.css',(h,r)=>{
+  r.sendFile(addPath('/main.css'));
+});
+app.get('/script.js',(h,r)=>{
+  r.sendFile(addPath('/script.js'));
 });
 
 // Throw 404 if no page found
 app.use((h,r)=>{
-	r.status(404).sendFile(addPath('/404.html'));
+  r.status(404).sendFile(addPath('/index.html'));
 });
 const PORT = process.env.PORT || 8080;
 app.listen(PORT);
