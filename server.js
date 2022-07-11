@@ -15,6 +15,9 @@ app.get('/main.css',(h,r)=>{
 app.get('/script.js',(h,r)=>{
   r.sendFile(addPath('/script.js'));
 });
+app.get('/image/intro.svg',(h,r)=>{
+  r.sendFile(addPath('/image/intro.svg'));
+});
 
 // Throw 404 if no page found
 app.use((h,r)=>{
