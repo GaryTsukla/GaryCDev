@@ -108,13 +108,13 @@ nav.opened {
   left: 0em;
 }
 #navopen.opened > .top {
-  transform: rotate(45deg) translate(0.505em, 0.5em);
+  transform: rotate(45deg) translate(0.5em, 0.425em);
 }
 #navopen.opened > .middle {
   opacity: 0;
 }
 #navopen.opened > .bottom {
-  transform: rotate(-45deg) translate(0.505em, -0.5em);
+  transform: rotate(-45deg) translate(0.5em, -0.425em);
 }
 .activeLocation {
   background-color: #6f59a7;
