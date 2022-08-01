@@ -6,7 +6,8 @@ const navbar = document.getElementById('nav');
 {
   class watchArea {
     constructor(id, navChild) {
-      this.section = document.getElementById(id);
+      let se = document.getElementById(id);
+      this.section = se;
       this.id = id;
       this.n = navChild;
       this.visible = false;
@@ -18,7 +19,9 @@ const navbar = document.getElementById('nav');
         },
         { rootMargin: '-10px 0px' }
       );
-      this.watch.observe(this.section);
+      if (se !== null) {
+        this.watch.observe(se);
+      }
     }
     setBackground(l, r) {
       this.background.style.left = l + '%';

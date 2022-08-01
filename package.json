@@ -4,6 +4,7 @@
   "description": "My website, garyc.dev",
   "main": "server.js",
   "scripts": {
+    "test": "sh -x tools/testScript.sh",
     "start": "node server.js"
   },
   "repository": {
