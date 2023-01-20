@@ -85,6 +85,13 @@ const setupNavBarAutoRemoval = function () {
     sections[i].addEventListener('click', removeNavBar, false);
   }
 };
+const duplicateSocialLinks = function () {
+  let footer = document.getElementById('footer');
+  let socialLinks = navbar.querySelector('.flexNav');
+  let newNode = socialLinks.cloneNode(true);
+  newNode.classList.remove('pushDown');
+  footer.insertBefore(newNode, footer.children[1]);
+};
 const widthWatch = window.matchMedia('screen and (min-width:55em)');
 const navButton = document.getElementById('navopen');
 let useNavButton = false;
@@ -95,3 +102,4 @@ widthWatch.addEventListener('change', checkWidth, false);
 const navLinks = navbar.querySelectorAll('a');
 let sections = document.querySelectorAll('header,section,footer');
 setupNavBarAutoRemoval();
+duplicateSocialLinks();
