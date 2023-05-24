@@ -87,10 +87,10 @@ const setupNavBarAutoRemoval = function () {
 };
 const duplicateSocialLinks = function () {
   let footer = document.getElementById('footer');
-  let socialLinks = navbar.querySelector('.flexNav');
+  let socialLinks = footer.querySelector('.flexNav');
   let newNode = socialLinks.cloneNode(true);
-  newNode.classList.remove('pushDown');
-  footer.insertBefore(newNode, footer.children[1]);
+  newNode.classList.add('pushDown');
+  navbar.appendChild(newNode);
 };
 const widthWatch = window.matchMedia('screen and (min-width:55em)');
 const navButton = document.getElementById('navopen');
